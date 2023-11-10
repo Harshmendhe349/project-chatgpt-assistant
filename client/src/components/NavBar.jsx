@@ -7,14 +7,13 @@ const NavBar = () => {
   const { user, logoutUser } = useContext(AuthContext);
 
   return (
-    <Navbar bg="dark" className="mb-4" style={{ height: "3.75rem" }}>
+    <Navbar bg="dark" className="mb-4" style={{ height: "4.5rem" }}>
       <Container>
         <h2>
-          <Link to="/" className="link-light text-decoration-none">
+          <Link to="/" className="link-light text-decoration-none" style={{fontSize:'50px'}}>
             Chatgpt Assitant
           </Link>
         </h2>
-        {user && <span className="text-warning">Logged in as {user.name}</span>}
         <Nav>
           <Stack direction="horizontal" gap={3}>
             {!user && (

@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { baseUrl, postRequest } from "../utils/service";
 
 const MAX_RETRIES = 5;
-const DELAY_BASE = 1000; // Initial delay in milliseconds
+const DELAY_BASE = 1000;
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
@@ -18,23 +18,20 @@ const Chat = () => {
 
   const handleSendMessage = async () => {
     if (inputMessage && !isSending) {
-      setIsSending(true); // Set the flag to indicate that a request is in progress
+      setIsSending(true); 
       try {
         const response = await postRequest(`${baseUrl}/chat`, JSON.stringify({ message: inputMessage }));
         setChatbotResponse(response.response);
-        setInputMessage(""); // Clear the input field
+        setInputMessage(""); 
       } catch (error) {
         if (error.response && error.response.status === 429) {
-          // 429 error, implement exponential backoff
-          const delay = Math.pow(2, MAX_RETRIES - 1) * DELAY_BASE; // Use max retry count
+          const delay = Math.pow(2, MAX_RETRIES - 1) * DELAY_BASE;
           setTimeout(() => {
-            handleSendMessage(); // Retry the request
+            handleSendMessage();
           }, delay);
         } else {
           console.error("Server error:", error);
         }
-      } finally {
-        setIsSending(false); // Reset the flag after the request is complete
       }
     }
   };
@@ -50,8 +47,20 @@ const Chat = () => {
               type="text"
               value={inputMessage}
               onChange={handleInputChange}
+              style={{
+                borderRadius: '8px', 
+                padding: '20px', 
+                height: '40px' 
+              }}
             />
-            <button onClick={handleSendMessage}>Submit</button>
+            <button 
+            onClick={handleSendMessage} 
+            style={{borderRadius:'10px',
+            marginLeft:'10px',
+            padding:'10px',
+            fontSize: '25px'
+            }}
+            >Submit</button>
             {chatbotResponse && (
               <div className="chatbot-response">
                 <p>{chatbotResponse}</p>

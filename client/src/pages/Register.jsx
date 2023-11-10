@@ -18,10 +18,10 @@ const Register = () => {
           style={{
             height: "100vh",
             justifyContent: "center",
-            paddingTop: "20%",
+            paddingTop: "10%",
           }}
         >
-          <Col xs={6}>
+          <Col xs={5}>
             <Stack gap={3}>
               <h2>Register</h2>
 
@@ -72,6 +72,7 @@ const Register = () => {
                 variant="primary"
                 type="submit"
                 disabled={isRegisterLoading}
+                style={{width:'100px', marginLeft:'40%',fontSize:'20px'}}
               >
                 {isRegisterLoading ? "Creating your account..." : "Register"}
               </Button>

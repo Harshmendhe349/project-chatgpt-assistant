@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const validator = require("validator");
 const userModel = require("../Models/userModel");
 const crypto = require("crypto");
-const axios = require("axios"); // For making HTTP requests to OpenAI
 const { sendverifyMail } = require("../utils/sendverifyMail");
 
 const createToken = (_id) => {

@@ -13,10 +13,10 @@ const Login = () => {
           style={{
             height: "100vh",
             justifyContent: "center",
-            paddingTop: "20%",
+            paddingTop: "10%",
           }}
         >
-          <Col xs={6}>
+          <Col xs={5}>
             <Stack gap={3}>
               <h2>Login</h2>
 
@@ -39,7 +39,7 @@ const Login = () => {
                 }
                 value={loginInfo.password}
               />
-              <Button variant="primary" type="submit" disabled={isLoginLoading}>
+              <Button variant="primary" type="submit" disabled={isLoginLoading} style={{width:'100px', marginLeft:'40%',fontSize:'20px'}}>
                 {isLoginLoading ? "Getting you in..." : "Login"}
               </Button>
 
